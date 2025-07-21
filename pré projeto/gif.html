@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGEM COM MOVIMENTO</title>
+
+    <link rel="stylesheet" type="text/css" href="gif2.css">
+</head>
+
+<body>
+    <div class="carrossel">
+        <div class="slides"> 
+          <img src="imagens/gandalf3.jpg" class="slide">
+          <img src="imagens/gandalf4.jpg" class="slide">
+          <img src="imagens/gandalf5.jpg" class="slide">
+          <img src="imagens/gandalf6.jpg" class="slide">
+          <img src="imagens/gandalfmodelo.jpg" class="slide">
+        </div>
+      
+        <div class="controles">
+          <button class="seta esquerda">&#10094;</button>
+          <button class="seta direita">&#10095;</button>
+        </div>
+      
+        <div class="bolinhas"></div>
+      </div>
+      
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const bolinhasContainer = document.querySelector(".bolinhas");
+        const esquerda = document.querySelector(".seta.esquerda");
+        const direita = document.querySelector(".seta.direita");
+        let index = 0;
+
+        function mostrarSlide(i) {
+            slides.forEach(slide => slide.classList.remove("ativo"));
+            bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+            slides[i].classList.add("ativo");
+            bolinhasContainer.children[i].classList.add("ativa");
+        }
+
+        function criarBolinhas() {
+            slides.forEach((_, i) => {
+                const bolinha = document.createElement("span");
+                bolinha.addEventListener("click", () => {
+                    index = i;
+                    mostrarSlide(index);
+                });
+                bolinhasContainer.appendChild(bolinha);
+            });
+        }
+
+        esquerda.addEventListener("click", () => {
+            index = (index - 1 + slides.length) % slides.length;
+            mostrarSlide(index);
+        });
+
+        direita.addEventListener("click", () => {
+            index = (index + 1) % slides.length;
+            mostrarSlide(index);
+        });
+
+        // Auto slide
+        setInterval(() => {
+            index = (index + 1) % slides.length;
+            mostrarSlide(index);
+        }, 5000);
+
+        // Iniciar
+        criarBolinhas();
+        mostrarSlide(index);
+    </script>
+
+
+</body>
+
+</html>

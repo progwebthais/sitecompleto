@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Menu</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+</head>
+
+<body>
+	<div class="meiocentraliza">
+		<div id="principal">
+
+			<div class="carrossel">
+				<div class="slides"> 
+				  <img src="imagens/gandalf3.jpg" class="slide">
+				  <img src="imagens/gandalf4.jpg" class="slide">
+				  <img src="imagens/gandalf5.jpg" class="slide">
+				  <img src="imagens/gandalf6.jpg" class="slide">
+				  <img src="imagens/gandalfmodelo.jpg" class="slide">
+				</div>
+			  
+				<div class="controles">
+				  <button class="seta esquerda">&#10094;</button>
+				  <button class="seta direita">&#10095;</button>
+				</div>
+			  
+				<div class="bolinhas"></div>
+			  </div>
+
+			
+			<div id="menu">
+
+				<a href="index.html">INÍCIO</a> |
+				<a href="menu.html">MENU</a> |
+				<a href="plus.html">DIVERSÃO</a> |
+				<a href="contato.html">CONTATO</a> |
+				<a href="trabalhe.html">TRABALHE</a>
+
+
+			</div>
+
+			<div id="conteudo"><!-- inicio conteudo -->
+				<div class="centro">
+				<h1> 🪶 CONHEÇA O MENU 📜 </h1>
+				<p>
+					Bem-vindo, viajante! Prepare-se para saborear iguarias dignas de nobres e plebeus!
+				</p>
+
+				<p>
+					<b>Entrada:</b>
+					<br>
+					<br>
+					- Pão Rústico com Manteiga de Ervas
+					<br>
+					<i>Pão fresco assado em forno a lenha, servido com uma manteiga temperada com ervas do campo.</i>
+
+				</p>
+
+				</p>
+
+				<img src="imagens/pao.jpg" class="img-campanha">
+
+				<p>
+				<p>
+					<b>Prato principal I:</b>
+					<br>
+					<br>
+					- Peixe do Lago com Ervas
+					<br>
+					<i>Peixe fresco grelhado, temperado com ervas aromáticas e servido com arroz de açafrão.</i>
+
+				</p>
+
+				</p>
+
+				<img src="imagens/peixe.jpg" class="img-campanha">
+
+				<p>
+
+				<p>
+					<b>Prato principal II:</b>
+					<br>
+					<br>
+					- Perna de Cordeiro Assada
+					<br>
+					<i>Perna de cordeiro marinada e assada lentamente, servida com legumes da estação e purê de
+						batata.</i>
+
+				</p>
+
+				</p>
+
+				<img src="imagens/perna.jpg" class="img-campanha">
+
+				<p>
+
+		
+
+				<p>
+					<b>Sobremesa:</b>
+					<br>
+					<br>
+					- Torta de Maçã da Taverna
+					<br>
+					<i>Torta caseira de maçã, servida quente com uma bola de sorvete de creme.</i>
+
+				</p>
+
+			</p>
+
+			<img src="imagens/torta.jpg" class="img-campanha">
+
+			<p>
+			</div>
+			</div><!-- fim conteudo -->
+
+			<div id="rodape">
+				<h4>Todos os direitos reservados</h4>
+			</div>
+		</div>
+		</div>
+	</div>
+	<script>
+		const slides = document.querySelectorAll(".slide");
+		const bolinhasContainer = document.querySelector(".bolinhas");
+		const esquerda = document.querySelector(".seta.esquerda");
+		const direita = document.querySelector(".seta.direita");
+		let index = 0;
+
+		function mostrarSlide(i) {
+			slides.forEach(slide => slide.classList.remove("ativo"));
+			bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+			slides[i].classList.add("ativo");
+			bolinhasContainer.children[i].classList.add("ativa");
+		}
+
+		function criarBolinhas() {
+			slides.forEach((_, i) => {
+				const bolinha = document.createElement("span");
+				bolinha.addEventListener("click", () => {
+					index = i;
+					mostrarSlide(index);
+				});
+				bolinhasContainer.appendChild(bolinha);
+			});
+		}
+
+		esquerda.addEventListener("click", () => {
+			index = (index - 1 + slides.length) % slides.length;
+			mostrarSlide(index);
+		});
+
+		direita.addEventListener("click", () => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		});
+
+		// Auto slide
+		setInterval(() => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		}, 3000);
+
+		// Iniciar
+		criarBolinhas();
+		mostrarSlide(index);
+	
+	</script>
+</body>
+
+</html>

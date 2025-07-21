@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>MAGIC TABERNA CLUB 🗡️</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+</head>
+
+<body>
+
+	<div class="meiocentraliza">
+		<div id="principal">
+		
+			<div class="carrossel">
+				<div class="slides"> 
+				  <img src="imagens/gandalf3.jpg" class="slide">
+				  <img src="imagens/gandalf4.jpg" class="slide">
+				  <img src="imagens/gandalf5.jpg" class="slide">
+				  <img src="imagens/gandalf6.jpg" class="slide">
+				  <img src="imagens/gandalfmodelo.jpg" class="slide">
+				</div>
+			  
+				<div class="controles">
+				  <button class="seta esquerda">&#10094;</button>
+				  <button class="seta direita">&#10095;</button>
+				</div>
+			  
+				<div class="bolinhas"></div>
+			  </div>
+
+			
+
+			<div id="menu">
+
+				<a href="index.html">INÍCIO</a> |
+				<a href="menu.html">MENU</a> |
+				<a href="plus.html">DIVERSÃO</a> |
+				<a href="contato.html">CONTATO</a> |
+				<a href="trabalhe.html">TRABALHE </a>
+
+
+			</div>
+
+			<div id="conteudo"><!-- inicio conteudo -->
+				<div class="centro">
+				<h1> ⚔️ MAGIC TABERNA CLUB 🏰</h1>
+				<p>
+					Somos um restaurante estilo taberna de RPG, onde a atmosfera é acolhedora e cheia de charme. As
+					paredes são adornadas com tapeçarias que retratam cenas de batalhas épicas e mapas de terras
+					distantes.
+					As mesas de madeira rústica estão dispostas para estimular a interação entre os clientes, que
+					podem ser aventureiros de todas as espécies e classes.
+
+				<p>
+					Nosso cardápio é variado, oferecendo pratos inspirados em diferentes culturas de fantasia, como
+					carnes
+					assadas, ensopados robustos e pães frescos, acompanhados de bebidas como hidromel e cervejas
+					artesanais.
+					Às vezes, há música ao vivo, com bardos contando histórias de heróis e lendas, criando um ambiente
+					vibrante e animado.
+
+				</p>
+
+				<p>
+					Os atendentes, vestidos como personagens de fantasia, são sempre prestativos e prontos para ouvir as
+					histórias dos clientes, tornando a experiência ainda mais imersiva. É o lugar perfeito para relaxar
+					após
+					uma longa jornada, compartilhar aventuras e fazer novas amizades.
+				</p>
+			</div>
+			</div><!-- fim conteudo -->
+
+			<div id="rodape">
+				<h4>Todos os direitos reservados</h4>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		const slides = document.querySelectorAll(".slide");
+		const bolinhasContainer = document.querySelector(".bolinhas");
+		const esquerda = document.querySelector(".seta.esquerda");
+		const direita = document.querySelector(".seta.direita");
+		let index = 0;
+
+		function mostrarSlide(i) {
+			slides.forEach(slide => slide.classList.remove("ativo"));
+			bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+			slides[i].classList.add("ativo");
+			bolinhasContainer.children[i].classList.add("ativa");
+		}
+
+		function criarBolinhas() {
+			slides.forEach((_, i) => {
+				const bolinha = document.createElement("span");
+				bolinha.addEventListener("click", () => {
+					index = i;
+					mostrarSlide(index);
+				});
+				bolinhasContainer.appendChild(bolinha);
+			});
+		}
+
+		esquerda.addEventListener("click", () => {
+			index = (index - 1 + slides.length) % slides.length;
+			mostrarSlide(index);
+		});
+
+		direita.addEventListener("click", () => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		});
+
+		// Auto slide
+		setInterval(() => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		}, 5000);
+
+		// Iniciar
+		criarBolinhas();
+		mostrarSlide(index);
+	
+	</script>
+</body>
+
+</html>

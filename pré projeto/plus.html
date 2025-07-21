@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>DIVERSÃO</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+</head>
+
+<body>
+	<div class="meiocentraliza">
+		<div id="principal">
+
+			<div class="carrossel">
+				<div class="slides"> 
+				  <img src="imagens/gandalf3.jpg" class="slide">
+				  <img src="imagens/gandalf4.jpg" class="slide">
+				  <img src="imagens/gandalf5.jpg" class="slide">
+				  <img src="imagens/gandalf6.jpg" class="slide">
+				  <img src="imagens/gandalfmodelo.jpg" class="slide">
+				</div>
+			  
+				<div class="controles">
+				  <button class="seta esquerda">&#10094;</button>
+				  <button class="seta direita">&#10095;</button>
+				</div>
+			  
+				<div class="bolinhas"></div>
+			  </div>
+
+			<div id="menu">
+
+				<a href="index.html">INÍCIO</a> |
+				<a href="menu.html">MENU</a> |
+				<a href="plus.html">DIVERSÃO</a> |
+				<a href="contato.html">CONTATO</a> |
+				<a href="trabalhe.html">TRABALHE</a>
+
+			</div>
+
+			<div id="conteudo"><!-- inicio conteudo -->
+				<div class="centro">
+				<h1> 🧝🏻 EXPERIÊNCIA QUE PROPORCIONAMOS 🏹</h1>
+				<p>
+					<b>Bebidas Artesanais:</b>
+					<br>
+					<i> Oferecemos uma seleção de cervejas artesanais, vinhos locais e coquetéis clássicos,
+						permitindo que os clientes experimentem bebidas que complementam a comida de maneira perfeita.
+					</i>
+
+				</p>
+
+				<img src="imagens/gandalf4.jpg" class="img-campanha">
+
+				<p>
+					<b>Música ao vivo :</b>
+					<br>
+					<i> Temos música ao vivo, como bandas de folk ou acústicas, nossa atmosfera é animada e envolvente
+						ao som do bardo.
+					</i>
+
+				</p>
+
+				<img src="imagens/gandalf3.jpg" class="img-campanha">
+
+				<p>
+					<b> Eventos Temáticos:</b>
+					<br>
+					<i> Organizamos noites de trivia, mesas de RPG. Focando em experiências únicas e divertidas.
+					</i>
+				</p>
+
+				<img src="imagens/gandalf5.jpg" class="img-campanha">
+
+				<p>
+				<p>
+					<b> Atendimento Personalizado: </b>
+					<br>
+					<i> Nossa equipe é amigável e atenciosa, busca criar uma conexão com os clientes e faz com que
+						se sintam em casa.
+					</i>
+				</p>
+
+				<img src="imagens/gandalf6.jpg" class="img-campanha">
+
+				</p>
+			</div>
+			</div><!-- fim conteudo -->
+
+			<div id="rodape">
+				<h4>Todos os direitos reservados</h4>
+			</div>
+
+		</div>
+	</div>
+
+	<script>
+		const slides = document.querySelectorAll(".slide");
+		const bolinhasContainer = document.querySelector(".bolinhas");
+		const esquerda = document.querySelector(".seta.esquerda");
+		const direita = document.querySelector(".seta.direita");
+		let index = 0;
+
+		function mostrarSlide(i) {
+			slides.forEach(slide => slide.classList.remove("ativo"));
+			bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+			slides[i].classList.add("ativo");
+			bolinhasContainer.children[i].classList.add("ativa");
+		}
+
+		function criarBolinhas() {
+			slides.forEach((_, i) => {
+				const bolinha = document.createElement("span");
+				bolinha.addEventListener("click", () => {
+					index = i;
+					mostrarSlide(index);
+				});
+				bolinhasContainer.appendChild(bolinha);
+			});
+		}
+
+		esquerda.addEventListener("click", () => {
+			index = (index - 1 + slides.length) % slides.length;
+			mostrarSlide(index);
+		});
+
+		direita.addEventListener("click", () => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		});
+
+		// Auto slide
+		setInterval(() => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		}, 3000);
+
+		// Iniciar
+		criarBolinhas();
+		mostrarSlide(index);
+	
+	</script>
+
+</body>
+
+</html>

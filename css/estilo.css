@@ -1,0 +1,321 @@
+/* Estrutura do site
+*/
+* {
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #000000 url(../imagens/fundopreto.jpg) repeat right center;
+}
+
+#container {
+	width: 750px;
+	margin: 0 auto;
+}
+
+
+
+.logo {
+	width: 152px;
+	height: 66px
+	text-indent: -3000px;
+	color: rgb(255, 187, 0);
+}
+
+/* Barra de navegação */
+#navegacao {
+    width: 100%; /* A largura será 100% do contêiner */
+    max-width: 750px; /* Define a largura máxima igual ao conteúdo principal */
+    margin: 0 auto; /* Centraliza a barra de navegação */
+    padding: 10px 0; /* Espaçamento interno da barra */
+    background-color: hwb(44 0% 0%); /* Cor de fundo da barra */
+    display: flex; /* Usa flexbox para centralizar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+/* Estilo para a lista de navegação */
+#navegacao ul {
+    list-style: none; /* Remove as bolinhas */
+    display: flex; /* Exibe os itens em linha */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para os itens da lista */
+#navegacao li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+/* Estilo dos links de navegação */
+#navegacao a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte dos links */
+    text-align: center; /* Alinha o texto dos links no centro */
+    padding: 5px 10px; /* Espaçamento interno para tornar os links clicáveis */
+    display: inline-block; /* Faz com que o link se comporte como um bloco */
+}
+
+/* Efeito hover para os links */
+#navegacao a:hover {
+    color: #555; /* Cor do texto ao passar o mouse */
+    background-color: hwb(44 53% 1%);; /* Cor de fundo ao passar o mouse */
+}
+
+/* Links para páginas específicas */
+
+/* Layout de três colunas */
+#conteudo {
+    margin-top: 60px;
+    background: #f5f5f5;
+}
+
+/* Layout das colunas (esquerda, principal, direita) */
+#lateral {
+    width: 180px;
+    float: left;
+    margin: 0 0 20px -750px;
+}
+
+#primario {
+    width: 270px;
+    float: left;
+    margin: 0 0 20px 195px;
+}
+
+#duas-colunas #primario {
+    width: 555px;
+}
+
+#uma-coluna #primario {
+    width: 750px;
+    margin: 0 0 20px 0;
+}
+
+#secundario {
+    width: 270px;
+    float: left;
+    margin: 0 0 20px 15px;
+}
+
+
+
+
+/* Configura layout de três colunas */
+#conteudo {
+	margin-top: 30px;
+	background: #f5f5f5;
+}
+
+#lateral {
+	width: 180px;
+	float: left;
+	margin: 0 0 20px -750px;
+}
+
+#primario {
+	width: 270px;
+	float: left;
+	margin: 0 0 20px 195px ;
+}
+
+#duas-colunas #primario {
+	width: 555px;
+}
+
+#uma-coluna #primario {
+	width: 750px;
+	margin: 0 0 20px 0;
+}
+
+#secundario {
+	width: 270px;
+	float: left;
+	margin: 0 0 20px 15px;
+}
+
+/*Caixa*/
+.caixa {
+	margin: 10px 0;
+	padding: 5px;
+	background: #f3f3f3 url(../imagens/fundo-caixa.png);
+}
+
+h2 {
+	font-size: 1em;
+	background: hwb(44 29% 13%);
+	color: #ffffff;
+	padding: 5px;
+}
+
+.caixa-conteudo {
+	background: #fff;
+	padding: 5px;
+	margin-top: 5px;
+}
+
+/* Formatar menus laterais
+*/
+#lateral ul a {
+	font-size: 0.9em;
+	padding: 3px;
+	display: block;
+	line-height: 30px;
+	color: #000;
+	text-decoration: none;
+	border-bottom: 1px solid #f3f3f3;
+}
+
+#lateral ul a:hover {
+	background: #f9f9f9 url(../imagens/marcador.png) no-repeat left center;
+	padding-left: 20px;
+	color: #a1a1a1;
+}
+
+/* Formatando formulários
+*/
+label {
+	display: block; 
+	cursor: pointer;
+}
+
+input {
+	padding: 5px;
+	width: 125px;
+	font-size: 0.9em;
+	background-color: #fff;
+}
+
+input.submit {
+	width: 80px;
+	color: #fff;
+	background-color: hwb(44 0% 0%);
+	border: 2px solid hwb(44 35% 12%);
+}
+
+/*Formatando imagens*/
+img.imagem-principal {
+	width: 98%;
+	border: 3px solid hwb(44 35% 12%);
+}
+
+/* Formatando cabeçalhos */
+h3 {
+	text-transform: uppercase;
+	display: inline;
+	font-size: 0.8em;
+	padding: 3px;
+}
+
+.destaque h3 {
+	background: hwb(44 0% 0%);
+	color: #000000;
+}
+
+.entrevista h3 {
+	background: hwb(44 0% 0%);
+}
+
+/*Formatando lista de notícias*/
+#lista-noticias li {
+	padding: 2px;
+	border-bottom: 1px solid #ccc; 
+	height: 100px;
+}
+
+#lista-noticias li a img {
+	float: left;
+	margin: 5px;
+}
+
+#lista-noticias li a {
+	text-decoration: none;
+}
+
+#lista-noticias li a h3 {
+	font-size: 0.8em;
+	padding: 0;
+	color: #3e7ab9;
+}
+
+#lista-noticias li a p {
+	font-size: 0.7em;
+	color: #000;
+}
+
+#lista-noticias li:hover {
+	background: #eee;
+	cursor: pointer;
+}
+
+
+/*Rodape*/
+#container-rodape {
+	background: hwb(44 0% 0%);;
+	padding: 20px;
+}
+
+#rodape {
+	width: 750px;
+	margin: 0 auto;
+	color: #fff;
+	
+}
+
+
+/* Novos estilos para a seção de parceiros */
+#parceiros-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#parceiros-lista li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#parceiros-lista a {
+    font-size: 1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+#parceiros-lista a:hover {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+#parceiros-lista .imagem-parceiro {
+    width: 130px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 130px;
+    margin-right: 15px;
+    border-radius: 30%;
+    border: 2px solid hwb(44 0% 0%);
+}
+
+#parceiros-lista a span {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Ajuste no fundo da caixa de parceiros */
+.caixa.destaque {
+    background: #fff;
+    border: 1px solid #fff;
+    padding: 15px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TRABALHE CONOSCO</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+
+</head>
+
+<body>
+    <div class="meiocentraliza">
+        <div id="principal">
+
+            <div class="carrossel">
+				<div class="slides"> 
+				  <img src="imagens/gandalf3.jpg" class="slide">
+				  <img src="imagens/gandalf4.jpg" class="slide">
+				  <img src="imagens/gandalf5.jpg" class="slide">
+				  <img src="imagens/gandalf6.jpg" class="slide">
+				  <img src="imagens/gandalfmodelo.jpg" class="slide">
+				</div>
+			  
+				<div class="controles">
+				  <button class="seta esquerda">&#10094;</button>
+				  <button class="seta direita">&#10095;</button>
+				</div>
+			  
+				<div class="bolinhas"></div>
+			  </div>
+
+
+            <div id="menu">
+
+                <a href="index.html">INÍCIO</a> |
+                <a href="menu.html">MENU</a> |
+                <a href="plus.html">DIVERSÃO</a> |
+                <a href="contato.html">CONTATO</a> |
+				<a href="trabalhe.html">TRABALHE</a>
+
+
+            </div>
+
+            <div id="conteudo"><!-- inicio conteudo -->
+				<div class="centro">
+                <h1> 👑 VENHA TRABALHAR CONOSCO 🐲</h1>
+                <p>
+                    Olá, amante da boa comida e da atmosfera acolhedora!
+                    <br>
+                    <br>
+                    Cultivamos um ambiente acolhedor e divertido para todos os nossos colaboradores. Se você é
+                    apaixonado por gastronomia, magia, atendimento ao cliente e deseja fazer parte de uma equipe animada
+                    e de outro universo, você está no lugar certo!
+                </p>
+			</div>
+                <div>
+
+                    <div class="">
+                        <form action ="/action_page.php" class="forms">
+                          <b><label for="fname">Nome completo:</label></b>
+                          <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
+                      
+                          <b><label for="lname">E-mail:</label></b>
+                          <input type="text" id="lname" name="lastname" placeholder="Seu e-mail...">
+                      
+                         <b> <label for="country">Vaga desejada:</label></b>
+                          <select id="country" name="country">
+                            <option value="Garçom">Garçom/Garçonete</option>
+                            <option value="Cozinheiro">Cozinheiro(a)</option>
+                            <option value="Bartender">Bartender</option>
+                            <option value="Auxiliar">Auxiliar de Limpeza</option>
+                            <option value="Gerente">Gerente de Restaurante</option>
+                          </select>
+                        
+                          <input type="submit" value="Enviar">
+                        </form>
+                      </div>
+
+                </div>
+
+            </div><!-- fim conteudo -->
+
+            <div id="rodape">
+                <h4>Todos os direitos reservados</h4>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+		const slides = document.querySelectorAll(".slide");
+		const bolinhasContainer = document.querySelector(".bolinhas");
+		const esquerda = document.querySelector(".seta.esquerda");
+		const direita = document.querySelector(".seta.direita");
+		let index = 0;
+
+		function mostrarSlide(i) {
+			slides.forEach(slide => slide.classList.remove("ativo"));
+			bolinhasContainer.querySelectorAll("span").forEach(b => b.classList.remove("ativa"));
+			slides[i].classList.add("ativo");
+			bolinhasContainer.children[i].classList.add("ativa");
+		}
+
+		function criarBolinhas() {
+			slides.forEach((_, i) => {
+				const bolinha = document.createElement("span");
+				bolinha.addEventListener("click", () => {
+					index = i;
+					mostrarSlide(index);
+				});
+				bolinhasContainer.appendChild(bolinha);
+			});
+		}
+
+		esquerda.addEventListener("click", () => {
+			index = (index - 1 + slides.length) % slides.length;
+			mostrarSlide(index);
+		});
+
+		direita.addEventListener("click", () => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		});
+
+		// Auto slide
+		setInterval(() => {
+			index = (index + 1) % slides.length;
+			mostrarSlide(index);
+		}, 3000);
+
+		// Iniciar
+		criarBolinhas();
+		mostrarSlide(index);
+	
+	</script>
+
+
+</body>
+
+</html>
